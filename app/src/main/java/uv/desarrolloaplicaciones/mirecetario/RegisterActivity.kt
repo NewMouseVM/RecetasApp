@@ -22,6 +22,12 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun initClass() {
+
+        binding.btnLogin.setOnClickListener{
+            var intent = Intent(this, MainActivity3::class.java)
+            startActivity(intent)
+        }
+
         binding.btnRegister.setOnClickListener{
             val admin = AdminSQLite (this, "administracion", null, 2)
             val bd = admin.writableDatabase

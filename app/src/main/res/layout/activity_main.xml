@@ -28,6 +28,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="30dp"
+                    android:background="#A11515"
                     android:gravity="center"
                     android:text="Categorías de Recetas"
                     android:textColor="#030623"

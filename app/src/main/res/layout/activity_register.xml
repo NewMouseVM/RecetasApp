@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/buttons"
+    android:background="@drawable/fondolog"
     tools:context="uv.desarrolloaplicaciones.mirecetario.RegisterActivity">
 
     <LinearLayout
@@ -71,13 +71,19 @@
                     android:id="@+id/radio_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Usuario" />
+                    android:background="@color/purple_200"
+                    android:buttonTint="#081978"
+                    android:text="Usuario"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <RadioButton
                     android:id="@+id/radio_admin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Administrador" />
+                    android:background="@color/purple_500"
+                    android:buttonTint="#081978"
+                    android:text="Administrador"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             </RadioGroup>
 

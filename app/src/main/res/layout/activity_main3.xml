@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/buttons"
+    android:background="@drawable/principal"
     tools:context="uv.desarrolloaplicaciones.mirecetario.MainActivity3">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -18,7 +19,7 @@
 
             android:id="@+id/lytLogin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
@@ -64,27 +65,33 @@
                 android:id="@+id/buttonLogin"
                 android:layout_width="138dp"
                 android:layout_height="54dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="32dp"
                 android:text="@string/btn_login"
                 app:cornerRadius="10dp"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck"
+                app:layout_constraintTop_toBottomOf="@id/textField1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <Button
                 android:id="@+id/btn_regis"
                 android:layout_width="138dp"
                 android:layout_height="54dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="32dp"
                 android:text="Register"
                 app:cornerRadius="10dp"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck"
+                app:layout_constraintTop_toBottomOf="@id/buttonLogin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
 
         </LinearLayout>
 
 
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

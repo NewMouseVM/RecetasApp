@@ -1,17 +1,47 @@
 package uv.desarrolloaplicaciones.mirecetario
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.*
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import org.w3c.dom.Text
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private lateinit var drawer: DrawerLayout
+    private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var userName : TextView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar_main)
+        setSupportActionBar(toolbar)
+
+        drawer = findViewById(R.id.drawer_layout)
+        toggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawer.addDrawerListener(toggle)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
+
+        val navigationView: NavigationView = findViewById(R.id.nav_view)
+        navigationView.setNavigationItemSelectedListener(this)
+
+        val headerView = navigationView.getHeaderView(0)
+        val userName: TextView = headerView.findViewById(R.id.nav_header_textView)
+        userName.text = intent.getStringExtra("usuario")
+
+
         val imgEnsaladas = findViewById<ImageView>(R.id.imgEnsalada)
         val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
         val txtEnsaladas = findViewById<TextView>(R.id.txtEnsalada)
@@ -78,7 +108,41 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.nav_one -> {
+                //Agregar intent para vista de las clases
+                Toast.makeText(this, "Clases", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_item_two -> {
+                //LOGOUT
+                val logout = Intent(this, MainActivity3::class.java)
+                startActivity(logout)
+            }
+        }
+        Toast.makeText(this, "Salgo", Toast.LENGTH_SHORT).show()
 
+        drawer.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    override fun onPostCreate(savedInstanceState: Bundle?){
+        super.onPostCreate(savedInstanceState)
+        toggle.syncState()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        toggle.onConfigurationChanged(newConfig)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(toggle.onOptionsItemSelected(item)){
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
 
 
 }

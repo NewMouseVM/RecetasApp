@@ -52,7 +52,7 @@ class MainActivity3 : AppCompatActivity() {
                 ) {
                     // Se pasa a la vista de usuario
                     var intent = Intent(this, MainActivityUser::class.java)
-                    //intent.putExtra(Variables.estadoUsuario, "Bienvenido")
+                    intent.putExtra("usuario", txtUser)
                     startActivity(intent)
                     return@setOnClickListener
                 }

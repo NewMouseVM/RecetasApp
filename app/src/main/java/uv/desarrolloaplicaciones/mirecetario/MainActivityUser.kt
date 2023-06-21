@@ -110,7 +110,6 @@ class MainActivityUser : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 startActivity(logout)
             }
         }
-        Toast.makeText(this, "Salgo", Toast.LENGTH_SHORT).show()
 
         drawer.closeDrawer(GravityCompat.START)
         return true

@@ -120,7 +120,7 @@ class DetallesReceta: AppCompatActivity() {
                 try{
                     if(etIngredientes.text.isNotEmpty() && etReceta.text.isNotEmpty()
                         && txtPorciones.text.isNotEmpty() && etInstrucciones.text.isNotEmpty()){
-                        val admin = AdminSQLite(this, "administracion", null, 1)
+                        val admin = AdminSQLite(this, "administracion", null, 2)
                         val bd = admin.writableDatabase
                         val registro = ContentValues()
                         registro.put("nombre", etReceta.getText().toString().lowercase())
@@ -159,7 +159,7 @@ class DetallesReceta: AppCompatActivity() {
                     try{
                         if(etReceta.text.isNotEmpty() && etIngredientes.text.isNotEmpty() && etInstrucciones.text.isNotEmpty() &&
                             txtPorciones.text.toString().isNotEmpty()){
-                            val admin = AdminSQLite (this, "administracion", null, 1)
+                            val admin = AdminSQLite (this, "administracion", null, 2)
                             val bd = admin.writableDatabase
                             val cantidad = bd.delete("recetas", "codigo = '${codigo}'", null )
 
